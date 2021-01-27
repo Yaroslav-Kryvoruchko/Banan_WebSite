@@ -46,6 +46,8 @@ header {
   width: 43px;
   height: 3px;
   background: #ffb901;
+
+  transition: background 0.5s ease 0s;
 }
 
 .item-btn::before,
@@ -55,6 +57,8 @@ header {
   width: 43px;
   height: 3px;
   background: #ffb901;
+
+  transition: transform 0.5s ease 0s;
 }
 
 .item-btn::before {
@@ -63,6 +67,45 @@ header {
 
 .item-btn::after {
   transform: translateY(12px);
+}
+
+.menu_btn.open_menu .item-btn {
+  background: transparent;
+}
+
+.menu_btn.open_menu .item-btn::before {
+  transform: translateY(-0px) rotate(45deg);
+}
+
+.menu_btn.open_menu .item-btn::after {
+  transform: translateY(-0px) rotate(-45deg);
+}
+
+.menu {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+
+}
+
+.menu_items {
+  position: fixed;
+  width: 100%;
+  height: 50%;
+  margin: 0 auto;
+  background: rgba(255, 185, 1, 0.8);
+
+  transition: transform 0.5s ease 0s;
+  transform: translateX(-100%);
+
+  z-index: 20;
+}
+
+.open-main_menu {
+  transform: translateX(0);
 }
 
 #home {
@@ -77,98 +120,109 @@ header {
 }
 
 .home_item-one {
-  width: 25%;
-  height: 100%;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.home_items-one {
   background: linear-gradient(to top, black -20%, transparent),
     linear-gradient(to bottom, black -85%, transparent),
     url("images/mahdis-mousavi-BxXil8PuZZA-unsplash.jpg") left 10% bottom 70% /
       cover no-repeat border-box;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
+
+  transition: width 0.5s ease 0s, transform 1s ease 0s;
+}
+
+.home_items-one {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  transition: transform 1s ease 0s;
 }
 
-.home_items-one:hover {
-  transform: scale(1.05);
+.home_item-open,
+.home_item-open-two,
+.home_item-open-tree,
+.home_item-open-four {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 1140px;
+  height: 100%;
+  margin: 0 auto;
 }
 
-.home_item-one h1 {
-  font-family: "Anton", sans-serif;
-  font-size: 4rem;
+.home_new-one,
+.home_new-two,
+.home_new-tree,
+.home_new-four {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: auto 0;
+}
+
+.home_new-one button,
+.home_new-two button,
+.home_new-tree button,
+.home_new-four button {
+  width: 300px;
+  height: 50px;
   color: white;
-  margin-bottom: 0;
-}
-
-.home_item-one p {
+  border: 3px solid white;
   font-family: "Roboto", sans-serif;
-  font-size: 2rem;
-  color: white;
-  margin-top: 0;
-  width: 100%;
-  text-align: center;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  background: transparent;
+  cursor: pointer;
+
+  transform: translateY(-100%);
+  opacity: 0;
+
+  transition: background 0.5s ease 0s, color 0.5s ease 0s,
+    transform 0.5s ease 0s, opacity 0.5s ease 0s;
 }
 
 .home_item-two {
-  position: relative;
-  width: 25%;
-  height: 100%;
-  overflow: hidden;
-  cursor: pointer;
-  /* padding: 0 24.375rem; */
-}
-
-.home_items-two {
   background: linear-gradient(to top, black -20%, transparent),
     linear-gradient(to bottom, black -85%, transparent),
     url("images/vasile-stancu-mqxlCmWufa0-unsplash.jpg") left 10% bottom 70% /
       cover no-repeat border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-
-  transition: transform 1s ease 0s;
-}
-
-.home_items-two:hover {
-  transform: scale(1.05);
-}
-
-.home_item-two h1 {
-  font-family: "Anton", sans-serif;
-  font-size: 4rem;
-  color: white;
-  margin-bottom: 0;
-}
-
-.home_item-two p {
-  font-family: "Roboto", sans-serif;
-  font-size: 2rem;
-  color: white;
-  margin-top: 0;
-  width: 100%;
-  text-align: center;
-}
-
-.home_item-tree {
   position: relative;
-  width: 25%;
+  width: 100%;
   height: 100%;
   overflow: hidden;
   cursor: pointer;
   /* padding: 0 24.375rem; */
+
+  transition: width 0.5s ease 0s, transform 1s ease 0s;
+}
+
+.home_items-two {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home_item-tree {
+  background: linear-gradient(to top, black -20%, transparent),
+    linear-gradient(to bottom, black -85%, transparent),
+    url("images/ovidiu-creanga-DKERPEfH9aY-unsplash.jpg") left 30% bottom 70% /
+      cover no-repeat border-box;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  /* padding: 0 24.375rem; */
+
+  transition: width 0.5s ease 0s, transform 1s ease 0s;
 }
 
 .home_items-tree {
@@ -176,43 +230,24 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to top, black -20%, transparent),
-    linear-gradient(to bottom, black -85%, transparent),
-    url("images/ovidiu-creanga-DKERPEfH9aY-unsplash.jpg") left 30% bottom 70% /
-      cover no-repeat border-box;
   width: 100%;
   height: 100%;
 
   transition: transform 1s ease 0s;
 }
-
-.home_items-tree:hover {
-  transform: scale(1.05);
-}
-
-.home_item-tree h1 {
-  font-family: "Anton", sans-serif;
-  font-size: 4rem;
-  color: white;
-  margin-bottom: 0;
-}
-
-.home_item-tree p {
-  font-family: "Roboto", sans-serif;
-  font-size: 2rem;
-  color: white;
-  margin-top: 0;
-  width: 100%;
-  text-align: center;
-}
-
 .home_item-four {
+  background: linear-gradient(to top, black -20%, transparent),
+    linear-gradient(to bottom, black -85%, transparent),
+    url("images/eduardo-soares-iIhlC6qWpXk-unsplash.jpg") left 50% bottom 70% /
+      cover no-repeat border-box;
   position: relative;
-  width: 25%;
+  width: 100%;
   height: 100%;
   overflow: hidden;
   cursor: pointer;
   /* padding: 0 24.375rem; */
+
+  transition: width 0.5s ease 0s, transform 1s ease 0s;
 }
 
 .home_items-four {
@@ -220,20 +255,40 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to top, black -20%, transparent),
-    linear-gradient(to bottom, black -85%, transparent),
-    url("images/eduardo-soares-iIhlC6qWpXk-unsplash.jpg") left 50% bottom 70% /
-      cover no-repeat border-box;
   width: 100%;
   height: 100%;
 
   transition: transform 1s ease 0s;
 }
 
-.home_items-four:hover {
-  transform: scale(1.05);
+.home_new-one p,
+.home_new-two p,
+.home_new-tree p,
+.home_new-four p {
+  text-align: left !important;
+  width: 70% !important;
+  font-size: 1.25rem !important;
+  opacity: 0;
+
+  transform: translateX(-20%);
+
+  transition: transform 0.5s ease 0s, opacity 0.5s ease 0s;
 }
 
+.home_new-one h1,
+.home_new-two h1,
+.home_new-tree h1,
+.home_new-four h1 {
+  margin-top: 0 !important;
+  opacity: 0;
+  transform: translateX(-40%);
+
+  transition: transform 0.5s ease 0s, opacity 0.5s ease 0s;
+}
+
+.home_item-one h1,
+.home_item-two h1,
+.home_item-tree h1,
 .home_item-four h1 {
   font-family: "Anton", sans-serif;
   font-size: 4rem;
@@ -241,13 +296,61 @@ header {
   margin-bottom: 0;
 }
 
+.home_item-one p,
+.home_item-two p,
+.home_item-tree p,
 .home_item-four p {
   font-family: "Roboto", sans-serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: white;
   margin-top: 0;
   width: 100%;
   text-align: center;
+}
+
+.open-home_items {
+  width: 0%;
+}
+
+.home_items-close {
+  display: none;
+}
+
+.home_new-one button:hover,
+.home_new-two button:hover,
+.home_new-tree button:hover,
+.home_new-four button:hover {
+  background: white;
+  color: #ffb901;
+}
+
+.home_item-one:hover,
+.home_item-two:hover,
+.home_item-tree:hover,
+.home_item-four:hover {
+  transform: scale(1.05);
+}
+
+.click-back {
+  position: absolute;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  bottom: 5%;
+  right: 5%;
+}
+
+.home_new-items {
+  display: flex;
+}
+
+.home_open-text {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+.home_open-btn {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
 }
 
 #variety {
@@ -256,7 +359,7 @@ header {
   align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background: black;
   padding: 10rem 0;
 }
@@ -283,10 +386,13 @@ header {
 }
 
 .open_variety-all {
-  height: 212px;
+  height: 250px;
 }
 
 .variety_all--item p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: "Roboto", sans-serif;
   font-size: 1.25rem;
   width: 80%;
@@ -305,11 +411,14 @@ header {
   to {
     transform: translateY(0);
     opacity: 1;
-    height: 100%;
+    height: 50%;
   }
 }
 
-.variety_item {
+.variety_item,
+.variety_item-two,
+.variety_item-tree,
+.variety_item-four {
   width: 500px;
   height: 60px;
   background: white;
@@ -321,12 +430,18 @@ header {
   cursor: pointer;
 }
 
-.variety_item h2 {
+.variety_item h2,
+.variety_item-two h2,
+.variety_item-tree h2,
+.variety_item-four h2 {
   font-family: "Anton", sans-serif;
   font-size: 2rem;
 }
 
-.variety_btn-open {
+.variety_btn-open,
+.variety_btn-open-two,
+.variety_btn-open-tree,
+.variety_btn-open-four {
   position: relative;
   width: 30px;
   height: 30px;
@@ -339,7 +454,10 @@ header {
   /* transform: rotate(90deg); */
 }
 
-.variety_opens {
+.variety_opens,
+.variety_opens-two,
+.variety_opens-tree,
+.variety_opens-four {
   position: relative;
   width: 30px;
   height: 30px;
@@ -351,7 +469,13 @@ header {
 }
 
 .variety_opens::before,
-.variety_opens::after {
+.variety_opens::after,
+.variety_opens-two::before,
+.variety_opens-two::after,
+.variety_opens-tree::before,
+.variety_opens-tree::after,
+.variety_opens-four::before,
+.variety_opens-four::after {
   content: "";
   width: 30px;
   height: 5px;
@@ -361,11 +485,17 @@ header {
   transition: all 0.5s ease 0s;
 }
 
-.variety_opens::before {
+.variety_opens::before,
+.variety_opens-two::before,
+.variety_opens-tree::before,
+.variety_opens-four::before {
   transform: rotate(90deg);
 }
 
-.variety_btn-open.variety_open .variety_opens::before {
+.variety_btn-open.variety_open .variety_opens::before,
+.variety_btn-open-two.variety_open .variety_opens-two::before,
+.variety_btn-open-tree.variety_open .variety_opens-tree::before,
+.variety_btn-open-four.variety_open .variety_opens-four::before {
   transform: rotate(0deg);
 }
 

@@ -40,11 +40,14 @@ if (animItems.length > 0) {
 
   const menuBtn = document.querySelector(".menu_btn");
   const menu = document.querySelector(".menu_items");
-  const menuClose = document.querySelector(".menu");
+  const menuClose = document.querySelector(".back-drop");
 
   menuClose.addEventListener("click", () => {
-    menu.classList.remove("open-main_menu");
     menuBtn.classList.remove("open_menu");
+    menu.classList.remove("open-main_menu");
+    setTimeout(() => {
+      menuClose.classList.remove("open-main_menu");
+    }, 200);
   });
 
   let openMenu = false;
@@ -52,11 +55,17 @@ if (animItems.length > 0) {
   menuBtn.addEventListener("click", () => {
     if (!openMenu) {
       menuBtn.classList.add("open_menu");
-      menu.classList.add("open-main_menu");
+      menuClose.classList.add("open-main_menu");
+      setTimeout(() => {
+        menu.classList.add("open-main_menu");
+      }, 200);
       openMenu = true;
     } else {
       menuBtn.classList.remove("open_menu");
       menu.classList.remove("open-main_menu");
+      setTimeout(() => {
+        menuClose.classList.remove("open-main_menu");
+      }, 200);
       openMenu = false;
     }
   });
@@ -460,3 +469,75 @@ if (animItems.length > 0) {
     }
   });
 }
+
+document.getElementById("radius-one").addEventListener("mouseover", () => {
+  document.getElementById("radius-one_info").style.display = "flex";
+  setTimeout(() => {
+    document
+      .getElementById("radius-one_info")
+      .classList.add("open-one_info");
+  }, 100);
+});
+
+document.getElementById("radius-one").addEventListener("mouseout", () => {
+  document
+    .getElementById("radius-one_info")
+    .classList.remove("open-one_info");
+  setTimeout(() => {
+    document.getElementById("radius-one_info").style.display = "none";
+  }, 500);
+});
+
+document.getElementById("radius-two").addEventListener("mouseover", () => {
+  document.getElementById("radius-two_info").style.display = "flex";
+  setTimeout(() => {
+    document
+      .getElementById("radius-two_info")
+      .classList.add("open-two_info");
+  }, 100);
+});
+
+document.getElementById("radius-two").addEventListener("mouseout", () => {
+  document
+    .getElementById("radius-two_info")
+    .classList.remove("open-two_info");
+  setTimeout(() => {
+    document.getElementById("radius-two_info").style.display = "none";
+  }, 500);
+});
+
+document.getElementById("radius-tree").addEventListener("mouseover", () => {
+  document.getElementById("radius-tree_info").style.display = "flex";
+  setTimeout(() => {
+    document
+      .getElementById("radius-tree_info")
+      .classList.add("open-tree_info");
+  }, 100);
+});
+
+document.getElementById("radius-tree").addEventListener("mouseout", () => {
+  document
+    .getElementById("radius-tree_info")
+    .classList.remove("open-tree_info");
+  setTimeout(() => {
+    document.getElementById("radius-tree_info").style.display = "none";
+  }, 500);
+});
+
+document.getElementById("radius-four").addEventListener("mouseover", () => {
+  document.getElementById("radius-four_info").style.display = "flex";
+  setTimeout(() => {
+    document
+      .getElementById("radius-four_info")
+      .classList.add("open-four_info");
+  }, 100);
+});
+
+document.getElementById("radius-four").addEventListener("mouseout", () => {
+  document
+    .getElementById("radius-four_info")
+    .classList.remove("open-four_info");
+  setTimeout(() => {
+    document.getElementById("radius-four_info").style.display = "none";
+  }, 500);
+});

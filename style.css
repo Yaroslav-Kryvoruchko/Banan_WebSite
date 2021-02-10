@@ -417,7 +417,10 @@ header {
   justify-content: center;
 }
 
-.variety_all--item {
+.variety_all--item-one,
+.variety_all--item-two,
+.variety_all--item-tree,
+.variety_all--item-four {
   height: 120px;
 
   transition: height 0.5s ease 0s;
@@ -427,7 +430,10 @@ header {
   height: 250px;
 }
 
-.variety_all--item p {
+.variety_all--item-one p,
+.variety_all--item-two p,
+.variety_all--item-tree p,
+.variety_all--item-four p {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -442,6 +448,9 @@ header {
   opacity: 0;
   transform: translateY(20%);
 
+}
+
+.open_p {
   animation: variety_open 0.5s ease 0s forwards;
 }
 
@@ -735,7 +744,7 @@ header {
 }
 
 #radius-tree_info p {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1rem;
   color: black;
   text-align: center;
@@ -803,9 +812,9 @@ header {
 
 #radius-one_info h1,
 #radius-two_info h1,
-#radius-tree_info h1, 
+#radius-tree_info h1,
 #radius-four_info h1 {
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   font-size: 1.25rem;
   font-weight: 500;
   color: black;
@@ -815,7 +824,7 @@ header {
 #radius-two_info p,
 #radius-tree_info p,
 #radius-four_info p {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1rem;
   color: black;
   text-align: center;
@@ -981,23 +990,149 @@ footer {
   position: relative;
   width: 100vw;
   height: 100vh;
-  /* border: 3px solid green; */
   overflow: hidden;
+
+  padding: 3rem 0;
 }
 
-footer h1 {
+.footer_h-text {
   font-family: "Anton", sans-serif;
   font-size: 4rem;
   color: black;
-  z-index: 2;
   margin-bottom: 0;
+  z-index: 5;
+
+  opacity: 0;
+  transition: opacity 1s ease 1s;
 }
 
-footer p {
+.footer_p-text {
   font-family: "Roboto", sans-serif;
   font-size: 1.5rem;
-  z-index: 2;
   margin-top: 0;
+  z-index: 5;
+
+  opacity: 0;
+  transition: opacity 1s ease 1s;
+}
+
+.footer_h-text._active,
+.footer_p-text._active  {
+  opacity: 1;
+}
+
+.footer_items {
+  width: 80vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  z-index: 4;
+}
+
+.footer_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 70%;
+
+  transform: translateY(50%);
+  opacity: 0;
+  transition: transform 1s ease 1s, opacity 1s ease 1s;
+}
+
+.footer_item._active {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+.footer_item ul {
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0;
+}
+
+.footer_item li {
+  margin: 1rem auto;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer_item li::before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 3px;
+  background: black;
+
+  transform: translateY(2rem);
+
+  transition: width 0.5s ease 0s;
+}
+
+.footer_item li:hover::before {
+  width: 270px;
+}
+
+.footer_item a {
+  color: black;
+  font-family: "Roboto" sans-serif;
+  font-size: 2.5rem;
+  text-decoration: none;
+}
+
+.footer_items input {
+  width: 350px;
+  height: 50px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.25rem;
+  outline: none;
+  border: 1px solid black;
+  padding: 0.5rem;
+
+  /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); */
+}
+
+input:focus {
+  border: 2px solid black !important;
+}
+
+.footer_items textarea {
+  width: 350px;
+  height: 150px;
+  margin: 1rem auto;
+  padding: 0.5rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.25rem;
+  resize: none;
+  border: 1px solid black;
+}
+
+.footer_items button {
+  width: 350px;
+  height: 50px;
+  background: white;
+  border: 1px solid black;
+  color: black;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  outline: none;
+  cursor: pointer;
+
+  transition: background 0.5s ease 0s, color 0.5s ease 0s, border 0.5s ease 0s;
+}
+
+.footer_items button:hover {
+  color: #ffb901;
 }
 
 .fullscreen-bg__video {
@@ -1005,6 +1140,15 @@ footer p {
   top: 0;
   left: 0;
   width: 100%;
+}
+
+.back-drop_footer {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0);
+
+  transition: background 0.5s ease 0.5s;
 }
 
 .banan_back {
@@ -1018,6 +1162,10 @@ footer p {
 
   transition: all 1s ease-in-out 0s;
   z-index: 1;
+}
+
+footer._active .back-drop_footer {
+  background: rgba(255, 255, 255, 0.7);
 }
 
 footer._active .banan_back {

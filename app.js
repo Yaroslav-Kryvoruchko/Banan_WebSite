@@ -340,55 +340,6 @@ if (animItems.length > 0) {
   const varietyAllItemTree = document.getElementById("variety-tree");
   const varietyAllItemFour = document.getElementById("variety-four");
 
-  function varietyOne() {
-    newParag = document.createElement("p");
-    newParag.className = ".variety_all--item p";
-    newParag.innerHTML = `
-    The green banana is a separate cultivar, not unripe bananas. The
-    fruits are large and inedible when raw. Here they make banana
-    chips. They can also be prepared, etc. It is sold not in fruit
-    shops, but in vegetable stores, along with cabbage and potatoes.
-    `;
-
-    setTimeout(() => {
-      varietyAllItemOne.append(newParag);
-    }, 500);
-    varietyAllItemOne.classList.add("open_variety-all");
-  }
-
-  function varietyTwo() {
-    newParagTwo = document.createElement("p");
-    newParagTwo.className = ".variety_all--item p";
-    newParagTwo.innerHTML = `
-  Nendrum banana - also called Kerala here. Large, pointed, yellow. The pulp is
-  orange, dense, almost crunchy, with a hard core. Sweet, aromatic,
-  with a slight sourness - very tasty! It costs 40 rupees (30
-  rubles) per kilogram (7-8 pieces). Unlike other varieties, this
-  one is for some reason sold in kilograms, and not in pieces.
-  Locals love this variety and believe that it is good for your
-  health. Although I doubt the other varieties are not helpful.
-    `;
-
-    setTimeout(() => {
-      varietyAllItemTwo.append(newParagTwo);
-    }, 500);
-    varietyAllItemTwo.classList.add("open_variety-all");
-  }
-
-  function varietyTree() {
-    newParagTree = document.createElement("p");
-    newParagTree.className = ".variety_all--item p";
-    newParagTree.innerHTML = `
-  Red banana - large, thick. The skin is very thin and peels off along with the top 
-  layer of pulp. The pulp is yellow, very soft, sweet, aromatic.
-    `;
-
-    setTimeout(() => {
-      varietyAllItemTree.append(newParagTree);
-    }, 500);
-    varietyAllItemTree.classList.add("open_variety-all");
-  }
-
   function varietyFour() {
     newParagFour = document.createElement("p");
     newParagFour.className = ".variety_all--item p";
@@ -401,7 +352,6 @@ if (animItems.length > 0) {
     setTimeout(() => {
       varietyAllItemFour.append(newParagFour);
     }, 500);
-    varietyAllItemFour.classList.add("open_variety-all");
   }
 
   let varietyOpenOne = false;
@@ -415,11 +365,18 @@ if (animItems.length > 0) {
 
   varietyItemOne.addEventListener("click", () => {
     if (!varietyOpenOne) {
-      varietyOne();
+      varietyAllItemOne.classList.add("open_variety-all");
+      setTimeout(() => {
+        document
+          .querySelector(".variety_all--item-one p")
+          .classList.add("open_p");
+      }, 200);
       varietyBtn.classList.add("variety_open");
       varietyOpenOne = true;
     } else {
-      newParag.remove();
+      document
+        .querySelector(".variety_all--item-one p")
+        .classList.remove("open_p");
       varietyAllItemOne.classList.remove("open_variety-all");
       varietyBtn.classList.remove("variety_open");
 
@@ -429,11 +386,18 @@ if (animItems.length > 0) {
 
   varietyItemTwo.addEventListener("click", () => {
     if (!varietyOpenTwo) {
-      varietyTwo();
+      varietyAllItemTwo.classList.add("open_variety-all");
+      setTimeout(() => {
+        document
+          .querySelector(".variety_all--item-two p")
+          .classList.add("open_p");
+      }, 200);
       varietyBtnTwo.classList.add("variety_open");
       varietyOpenTwo = true;
     } else {
-      newParagTwo.remove();
+      document
+        .querySelector(".variety_all--item-two p")
+        .classList.remove("open_p");
       varietyAllItemTwo.classList.remove("open_variety-all");
       varietyBtnTwo.classList.remove("variety_open");
 
@@ -443,11 +407,19 @@ if (animItems.length > 0) {
 
   varietyItemTree.addEventListener("click", () => {
     if (!varietyOpenTree) {
-      varietyTree();
+      varietyAllItemTree.classList.add("open_variety-all");
+      setTimeout(() => {
+        document
+          .querySelector(".variety_all--item-tree p")
+          .classList.add("open_p");
+      }, 200);
       varietyBtnTree.classList.add("variety_open");
       varietyOpenTree = true;
     } else {
-      newParagTree.remove();
+      varietyAllItemTree.classList.remove("open_variety-all");
+      document
+        .querySelector(".variety_all--item-tree p")
+        .classList.remove("open_p");
       varietyAllItemTree.classList.remove("open_variety-all");
       varietyBtnTree.classList.remove("variety_open");
 
@@ -457,11 +429,19 @@ if (animItems.length > 0) {
 
   varietyItemFour.addEventListener("click", () => {
     if (!varietyOpenFour) {
-      varietyFour();
+      varietyAllItemFour.classList.add("open_variety-all");
+      setTimeout(() => {
+        document
+          .querySelector(".variety_all--item-four p")
+          .classList.add("open_p");
+      }, 200);
       varietyBtnFour.classList.add("variety_open");
       varietyOpenFour = true;
     } else {
-      newParagFour.remove();
+      varietyAllItemFour.classList.remove("open_variety-all");
+      document
+        .querySelector(".variety_all--item-four p")
+        .classList.remove("open_p");
       varietyAllItemFour.classList.remove("open_variety-all");
       varietyBtnFour.classList.remove("variety_open");
 
@@ -473,16 +453,12 @@ if (animItems.length > 0) {
 document.getElementById("radius-one").addEventListener("mouseover", () => {
   document.getElementById("radius-one_info").style.display = "flex";
   setTimeout(() => {
-    document
-      .getElementById("radius-one_info")
-      .classList.add("open-one_info");
+    document.getElementById("radius-one_info").classList.add("open-one_info");
   }, 100);
 });
 
 document.getElementById("radius-one").addEventListener("mouseout", () => {
-  document
-    .getElementById("radius-one_info")
-    .classList.remove("open-one_info");
+  document.getElementById("radius-one_info").classList.remove("open-one_info");
   setTimeout(() => {
     document.getElementById("radius-one_info").style.display = "none";
   }, 500);
@@ -491,16 +467,12 @@ document.getElementById("radius-one").addEventListener("mouseout", () => {
 document.getElementById("radius-two").addEventListener("mouseover", () => {
   document.getElementById("radius-two_info").style.display = "flex";
   setTimeout(() => {
-    document
-      .getElementById("radius-two_info")
-      .classList.add("open-two_info");
+    document.getElementById("radius-two_info").classList.add("open-two_info");
   }, 100);
 });
 
 document.getElementById("radius-two").addEventListener("mouseout", () => {
-  document
-    .getElementById("radius-two_info")
-    .classList.remove("open-two_info");
+  document.getElementById("radius-two_info").classList.remove("open-two_info");
   setTimeout(() => {
     document.getElementById("radius-two_info").style.display = "none";
   }, 500);
@@ -509,9 +481,7 @@ document.getElementById("radius-two").addEventListener("mouseout", () => {
 document.getElementById("radius-tree").addEventListener("mouseover", () => {
   document.getElementById("radius-tree_info").style.display = "flex";
   setTimeout(() => {
-    document
-      .getElementById("radius-tree_info")
-      .classList.add("open-tree_info");
+    document.getElementById("radius-tree_info").classList.add("open-tree_info");
   }, 100);
 });
 
@@ -527,9 +497,7 @@ document.getElementById("radius-tree").addEventListener("mouseout", () => {
 document.getElementById("radius-four").addEventListener("mouseover", () => {
   document.getElementById("radius-four_info").style.display = "flex";
   setTimeout(() => {
-    document
-      .getElementById("radius-four_info")
-      .classList.add("open-four_info");
+    document.getElementById("radius-four_info").classList.add("open-four_info");
   }, 100);
 });
 
